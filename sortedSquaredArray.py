@@ -1,6 +1,6 @@
 # Problem: Given a sorted list of integers, return a list of their squares, sorted.
 # Example: [-7,-3,-1,4,8,12] --> [1, 9, 16, 49, 64, 144]
-# Source: Facebook
+# Source: Facebook Coding Interview
 def sortedSquaredArray(lst):
     left = 0
     right = len(lst) - 1q
