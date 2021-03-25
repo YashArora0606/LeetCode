@@ -1,0 +1,34 @@
+blocks = [
+            {
+                "gym": False,
+                "school": True,
+                "store": False
+            },
+            {
+                "gym": True,
+                "school": False,
+                "store": False
+            },
+            {
+                "gym": True,
+                "school": True,
+                "store": False
+            },
+            {
+                "gym": False,
+                "school": True,
+                "store": False
+            },
+            {
+                "gym": False,
+                "school": True,
+                "store": True
+            }
+        ]
+
+required_ammenities = ["gym", "school", "store"]
+
+# findBestBlock(blocks, required_ammenities) -> returns 3 
+# (referring to the 3rd index in required_ammenities)
+# Reasoning: The house on index 3 has a minimized maximum 
+# distance from all the required ammenities (max distance is 1)
