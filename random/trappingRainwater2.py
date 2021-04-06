@@ -50,4 +50,4 @@ class Solution:
             heappush(border, (heightMap[0][i], (0, i)))
             heappush(border, (heightMap[m-1][i], (m-1, i)))
         
-        while len(border > 0):
+        while border:
