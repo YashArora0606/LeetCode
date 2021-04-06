@@ -26,3 +26,28 @@
 # so total = 2
 # which is correct
 # ok that's enough thinking for today im gonna try to code it tmrw
+
+
+
+import heapq
+
+class Solution:
+    def trapRainWater(self, heightMap: List[List[int]]) -> int:
+        
+        border = []
+        m = len(heightMap)
+        n = len(heightMap[0])
+        
+        # If either are < 3 then the entire system is border
+        if m < 3 or n < 3:
+            return 0
+        
+        # Construct initial border O(n + m - 4)
+        for i in range(m):
+            heappush(border, (heightMap[i][0], (i, 0)))
+            heappush(border, (heightMap[i][n-1], (i, n-1)))
+        for i in range(1, n-1):
+            heappush(border, (heightMap[0][i], (0, i)))
+            heappush(border, (heightMap[m-1][i], (m-1, i)))
+        
+        while len(border > 0):
