@@ -1,29 +1,22 @@
 class Solution:
-    # Attempt 1: Could be improved
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         if len(nums) < 3:
             return []
-
-        triplets = set()
         nums = sorted(nums)
-
-        for i in range(len(nums)):
-            n = nums.copy()
-            target = -1 * n.pop(i)
-
-            left = 0
-            right = len(n) - 1
-            while left < right:
-                if n[left] + n[right] == target:
-                    triplets.add(
-                        tuple(sorted([n[left], n[right], target * -1])))
-                    left += 1
-                    right -= 1
-                elif n[left] + n[right] < target:
-                    left += 1
+        triplets = set()
+        for i in range(len(nums) - 2):
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            low = i + 1
+            high = len(nums) - 1
+            while low < high:
+                summation = nums[i] + nums[low] + nums[high]
+                if summation > 0:
+                    high -= 1
+                elif summation < 0:
+                    low += 1
                 else:
-                    right -= 1
-        ret = []
-        for triplet in triplets:
-            ret.append(list(triplet))
-        return ret
+                    triplets.add((nums[i], nums[low], nums[high]))
+                    high -= 1
+                    low += 1
+        return list(triplets)

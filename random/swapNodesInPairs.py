@@ -6,8 +6,8 @@
 
 # Swapping Values
 class Solution:
-    def swapPairs(self, head: ListNode) -> ListNode:
         
+    def swapPairs(self, head: ListNode) -> ListNode:
         if head == None or head.next == None:
             return head
         node = head
